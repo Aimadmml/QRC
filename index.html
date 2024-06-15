@@ -108,9 +108,9 @@ video {
 			</div>
 		</div>
 		<form method="post" action="http://116.206.152.133/qrc/gert_qrc.php">
-			<input type="text" name="qrc1" id="qrc1" readonly>
-			<input type="text" name="scan_loc" id="scan_loc" readonly>
-			<input type="submit" name="Submit" class="button">
+			<input type="hidden" name="qrc1" id="qrc1" readonly>
+			<input type="hidden" name="scan_loc" id="scan_loc" readonly>
+			<input type="submit" name="Submit" id="sbt_btn" class="button">
 		</form>
 	</div>
 	<script
@@ -158,6 +158,7 @@ domReady(function () {
                 document.getElementById('scan_loc').value=getVal;
             } else {
                 document.getElementById('scan_loc').value='0';
+		document.getElementById('submitButton').disabled = true; 
             }
         }
         </script>
