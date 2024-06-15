@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <style>
         #qr-reader {
-            width: 500px;
+            width: 300px;
             margin: auto;
         }
         form {
@@ -22,10 +22,10 @@
     </style>
 </head>
 <body>
-    <div id="qr-reader" style="width:300px"></div>
+    <div id="qr-reader" style="width:300px;"></div>
     <div id="qr-reader-results"></div>
 
-    <form id="qr-form" action="116.206.152.133/QRC/GET_QRC.PHP" method="POST">
+    <form id="qr-form" action="#" method="POST">
         <label for="qr-result">QR Code Result:</label>
         <input type="text" id="qr-result" name="qr-result" readonly>
         <input type="submit" value="Submit">
@@ -50,4 +50,3 @@
     </script>
 </body>
 </html>
-
