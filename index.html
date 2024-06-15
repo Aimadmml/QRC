@@ -121,9 +121,8 @@ domReady(function () {
 
 	// If found you qr code
 	function onScanSuccess(decodeText, decodeResult) {
-		//alert("You Qr is : " + decodeText, decodeResult);
+		alert("You Qr is : " + decodeText, decodeResult);
 		document.getElementById('qrc1').value=decodeText;
-		document.getElementById('qrc').value=decodeResult;
 		
 	}
 
