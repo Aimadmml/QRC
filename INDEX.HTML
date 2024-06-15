@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <style>
+        #qr-reader {
+            width: 500px;
+            margin: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        input {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="qr-reader" style="width:300px"></div>
+    <div id="qr-reader-results"></div>
+
+    <form id="qr-form" action="116.206.152.133/QRC/GET_QRC.PHP" method="POST">
+        <label for="qr-result">QR Code Result:</label>
+        <input type="text" id="qr-result" name="qr-result" readonly>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            // Handle on success condition with the decoded text or result.
+            console.log(`Scan result: ${decodedText}`, decodedResult);
+            document.getElementById('qr-result').value = decodedText;
+        }
+
+        function onScanFailure(error) {
+            // Handle on error condition with the error message.
+            console.warn(`Scan error: ${error}`);
+        }
+
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    </script>
+</body>
+</html>
+
