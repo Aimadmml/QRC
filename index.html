@@ -108,7 +108,8 @@ video {
 			</div>
 		</div>
 		<form method="post" action="http://116.206.152.133/qrc/gert_qrc.php">
-			<input type="hidden" name="qrc1" id="qrc1" readonly>
+			<input type="text" name="qrc1" id="qrc1" readonly>
+			<input type="text" name="scan_loc" id="scan_loc" readonly>
 			<input type="submit" name="Submit" class="button">
 		</form>
 	</div>
@@ -145,6 +146,20 @@ domReady(function () {
 	htmlscanner.render(onScanSuccess);
 });
 
+		function getQueryParam(param) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        // Display the value of 'get_val' when the page loads
+        window.onload = function() {
+            let getVal = getQueryParam('scan_loc');
+            if (getVal !== null) {
+                document.getElementById('scan_loc').value=getVal;
+            } else {
+                document.getElementById('scan_loc').value='0';
+            }
+        }
         </script>
 </body>
 
